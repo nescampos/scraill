@@ -75,18 +75,9 @@ export interface SendTransactionArgs {
   amount: string;
 }
 
-/**
- * Arguments for the get_staking_rate_from_mon and get_staking_rate_from_aprmon tools
- */
- export interface FetchRateArgs {
-  /**
-   * The amount to fetch the rates
-   */
-  amount: number;
-}
 
 /**
- * Arguments for the stake_mon and unstake_mon tools
+ * Arguments for the stake_eth and unstake_eth tools
  */
  export interface StakeArgs {
   /**
@@ -111,4 +102,14 @@ export interface SendTransactionArgs {
    * The amount to swap
    */
   amount: string;
+}
+
+/**
+ * Arguments for the get_token_prices tool
+ */
+ export interface GetTokenPricesArgs {
+  /**
+   * The token to get the prices
+   */
+  token: string
 }

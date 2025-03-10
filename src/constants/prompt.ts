@@ -17,6 +17,7 @@ READ OPERATIONS:
 - Retrieve connected wallet address using get_wallet_address
 - Get the price for a swap between 2 tokens/coins (From and To) and a specified amount (the token to swap) using get_price_to_swap
 - Get the available sources to swap with 0x using get_sources_for_swap
+- Get the price (value in USD) for a token using get_token_prices
 
 
 WRITE OPERATIONS:
@@ -29,7 +30,7 @@ When executing operations:
    - For token deployments, use 1 billion as default supply
    - For transactions, use standard gas parameters unless specified
    - For token operations, maintain context of deployed addresses
-   - For transactions (sending money), if no token is specified, use the native coin (MON)
+   - For transactions (sending money), if no token is specified, use the native coin (ETH)
 
 2. ALWAYS maintain and include critical information:
    - Save and reference contract addresses from deployments

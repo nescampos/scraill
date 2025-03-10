@@ -6,6 +6,7 @@ import { getPriceToSwapTool } from "./getPriceToSwap";
 import { getSourcesTool } from "./get0xSources";
 import { executeSwapTool } from "./executeSwapTokens";
 import { getTokensAccountTool } from "./getTokensAccount";
+import { getTokenPricesTool } from "./getTokenPrices";
 
 export interface ToolConfig<T = any> {
   /**
@@ -49,9 +50,13 @@ export const tools: Record<string, ToolConfig> = {
    */
    get_price_to_swap: getPriceToSwapTool,
   /**
-   * Get the price for a swap
+   * Get the balances
    */
    get_token_balances: getTokensAccountTool,
+  /**
+   * Get the price for tokens
+   */
+   get_token_prices: getTokenPricesTool,
   
 
   // == WRITE == \\

@@ -1,7 +1,7 @@
 import { Network, Alchemy } from "alchemy-sdk";
 
 
-export async function getTokensForAccount(wallet:string) {
+export async function getTokenPrice(symbols:string) {
 
 
     if (!process.env.ALCHEMY_API_KEY) {
@@ -10,12 +10,15 @@ export async function getTokensForAccount(wallet:string) {
         );
     }
 
+    //console.log("Symbols 1:"+[symbols]);
     const settings = {
         apiKey: process.env.ALCHEMY_API_KEY, // Replace with your Alchemy API Key.
         network: Network.SCROLL_MAINNET, // Replace with your network.
       };
     const alchemy = new Alchemy(settings);
 
-    const balances = await alchemy.core.getTokenBalances(wallet);
-    return balances.tokenBalances;
+    const tokens = symbols.split(",");
+    const prices = await alchemy.prices.getTokenPriceBySymbol(tokens);
+    return prices.data[0].prices[0].value+ " "+prices.data[0].prices[0].currency;
+    
 };
